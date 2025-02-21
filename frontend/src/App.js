@@ -83,14 +83,20 @@ const Game = () => {
         ) {
           setGameOver(true);
           cancelAnimationFrame(animationFrameId);
+    
+          // ✅ Ensure the correct final score is displayed
+          const finalScore = Math.floor(scoreCounter / 50);
+    
           setTimeout(() => {
-            alert(`Game Over! Your Score: ${score}`);
+            alert(`Game Over! Your Score: ${finalScore}`);
             window.location.reload();
           }, 200);
+    
           return;
         }
       }
     }
+    
 
     function gameLoop() {
       if (gameOver) return;
