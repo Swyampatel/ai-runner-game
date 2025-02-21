@@ -11,21 +11,20 @@ const Game = () => {
   let animationFrameId = null;
 
   useEffect(() => {
-    socket.current = new WebSocket(`ws://localhost:8000/game/${playerId}`);
+    socket.current = new WebSocket(`wss://ai-runner-game.onrender.com/game/${playerId}`);
 
     socket.current.onopen = () => console.log("✅ WebSocket Connected!");
     socket.current.onerror = (error) => console.error("❌ WebSocket Error:", error);
     socket.current.onclose = () => console.warn("⚠️ WebSocket Disconnected. Attempting to reconnect...");
-    
+
     socket.current.onmessage = (event) => {
       const data = JSON.parse(event.data);
-    
+
       // ✅ Only update difficulty if it has changed
       if (data.difficulty !== difficulty) {
         setDifficulty(data.difficulty);
       }
     };
-    
 
     return () => {
       socket.current.close();
@@ -73,7 +72,6 @@ const Game = () => {
         player.isJumping = false; // ✅ Reset jump after landing
       }
     }
-    
 
     function detectCollision() {
       for (let obstacle of obstacles) {
@@ -86,9 +84,9 @@ const Game = () => {
           setGameOver(true);
           cancelAnimationFrame(animationFrameId);
           setTimeout(() => {
-            alert(`Game Over! Your Score: ${Math.floor(scoreCounter / 50)}`);
+            alert(`Game Over! Your Score: ${score}`);
             window.location.reload();
-          }, 200);          
+          }, 200);
           return;
         }
       }
@@ -115,12 +113,6 @@ const Game = () => {
         if (socket.current.readyState === WebSocket.OPEN) {
           socket.current.send(JSON.stringify({ score: newScore }));
         }
-      }
-
-
-
-      if (socket.current.readyState === WebSocket.OPEN) {
-        socket.current.send(JSON.stringify({ score: Math.floor(scoreCounter / 50) }));
       }
 
       animationFrameId = requestAnimationFrame(gameLoop);
