@@ -1,61 +1,51 @@
-/* 🌟 Game UI Enhancements 🌟 */
-
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .game-container {
-    max-width: 600px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .game-title {
-    color: #2c3e50;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .scoreboard {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
-    font-size: 18px;
-  }
-  
-  .scoreboard p {
-    background: #ecf0f1;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-weight: bold;
-  }
-  
-  .game-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background: #dfe6e9;
-    border-radius: 10px;
-    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .game-canvas {
-    border: 2px solid #2c3e50;
-    background: white;
-    border-radius: 5px;
-  }
-  
-  .instructions {
-    font-size: 16px;
-    color: #555;
-    margin-top: 10px;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.game-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #dfe6e9;
+  border-radius: 10px;
+}
+
+.game-canvas {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+.mobile-jump-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.start-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
