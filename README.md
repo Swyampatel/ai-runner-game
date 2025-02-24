@@ -67,7 +67,7 @@ Contributions are welcome!
 1. Fork the repo  
 2. Create a new branch (`feature-new`)  
 3. Commit changes  
-4. Submit a PR 🎉  
+4. Submit a PR 
 
 ---
 
